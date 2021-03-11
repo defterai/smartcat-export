@@ -1,0 +1,32 @@
+name: 'SmartCAT Export'
+author: 'defterai'
+branding:
+  icon: 'archive'
+  color: 'yellow'
+description: 'Export SmartCAT document to file as workflow action'
+inputs:
+  account_id:
+    description: 'SmartCAT account identifier'
+    required: true
+  auth_key:
+    description: 'SmartCAT auth API key'
+    required: true
+  document_id:
+    description: 'Export document identifier'
+    required: true
+  language_id:
+    description: 'Export document language identifier'
+    required: true
+  filename:
+    description: 'Export document file name'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.account_id }}
+    - ${{ inputs.auth_key }}
+    - ${{ inputs.document_id }}
+    - ${{ inputs.language_id }}
+    - ${{ inputs.filename }}
