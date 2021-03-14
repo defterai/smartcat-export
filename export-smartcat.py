@@ -2,7 +2,6 @@
 
 import sys
 import time
-import configparser
 from smartcat import *
 
 def export_multilang_csv(document_resource, document_id, output_file_name):
